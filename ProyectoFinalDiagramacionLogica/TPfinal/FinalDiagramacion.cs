@@ -12,7 +12,7 @@ namespace TPfinal
             int edadAfil = 0;
             int cantAfil = 0, cantXSan = 0, cantMaxAfilSan = 0, cantMinAfilSan = 0;
             String codSanAux = " ", codPlanAux = " ", codAfilAux = " ";
-            String presInput = "Y";
+            String presInput = " ";
             int contP1 = 0, contP2 = 0, contP3 = 0;
             bool afilMcons = true, mayorAfilSan = true;
             String sanShow = " ", afilShow = " ", sanShowAfilMax = " ", sanShowAfilMin = " ";
@@ -60,7 +60,7 @@ namespace TPfinal
                         cantAfil++;
 
                         //contabilizamos prestaciones
-                        while (presInput.Equals("Y", StringComparison.InvariantCultureIgnoreCase))
+                        while (!presInput.Equals("N", StringComparison.InvariantCultureIgnoreCase))
                         {
                             //ingresamos el valor de la prestacion usada
                             Console.WriteLine("Ingrese valor de prestacion");
@@ -81,7 +81,7 @@ namespace TPfinal
                                 }
                                 else
                                 {
-                                    if (codPlan.Equals("PL2", StringComparison.InvariantCultureIgnoreCase) && valorPrest > 300)
+                                    if (codPlan.Equals("PL3", StringComparison.InvariantCultureIgnoreCase) && valorPrest > 300)
                                     {
                                         //Si el plan es el 3 y se pasa del tope del plan se contabiliza el tope
                                         valXAfil += 300;
@@ -99,6 +99,9 @@ namespace TPfinal
                             presInput = Console.ReadLine();
                         }
                         //Fin de calculo de prestaciones
+                        
+                        //Reiniciamos variable para cargar prestaciones
+                        presInput = "";
 
                         //Preguntamos si queremos seguir cargando afiliados
                         Console.WriteLine("Para continuar cargando afiliados con mismo plan ingrese Y Para salir ingrese N");
@@ -170,12 +173,16 @@ namespace TPfinal
 
                     }
                     //Fin del primer corte de control
-
+                    //Reiniciamos variable para cargar afiliado
+                    codAfil = " ";
                     //Preguntamos si queremos cambiar valor de plan
                     Console.WriteLine("Ingrese Y para cambiar de plan ingrese N para salir");
                     codPlan = Console.ReadLine();
                 }
                 //Fin del segundo corte de control
+                
+                //Reiniciamos vaiable para cambiar plan
+                codPlan = "";
 
                 //Mostramos informacion
                 Console.WriteLine($"El sanatorio {codSanAux} atendio: {cantXSan}");
@@ -222,7 +229,7 @@ namespace TPfinal
                 valTfact = 0;
 
                 //Preguntamos si deseamos cambiar de sanatorio o salir 
-                Console.WriteLine("Ingrese Y para cambiar de sanatorio ingrese N para salir");
+                Console.WriteLine("Ingrese Y para cambiar de sanatorio, ingrese N para salir");
                 codSan = Console.ReadLine();
             }
             //Fin de ultimo corte de control
@@ -235,17 +242,17 @@ namespace TPfinal
             //Calculamos y mostramos plan con mas atenciones
             if (contP1 > contP2 && contP1 > contP3)
             {
-                Console.WriteLine($"El paln PL1 registro {contP1} atenciones");
+                Console.WriteLine($"El plan PL1 registro {contP1} atenciones");
             }
             else
             {
                 if (contP2 > contP3)
                 {
-                    Console.WriteLine($"El paln PL1 registro {contP2} atenciones");
+                    Console.WriteLine($"El plan PL2 registro {contP2} atenciones");
                 }
                 else
                 {
-                    Console.WriteLine($"El paln PL1 registro {contP3} atenciones");
+                    Console.WriteLine($"El plan PL3 registro {contP3} atenciones");
                 }
             }
         }
