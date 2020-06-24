@@ -99,7 +99,7 @@ namespace TPfinal
                             presInput = Console.ReadLine();
                         }
                         //Fin de calculo de prestaciones
-                        
+
                         //Reiniciamos variable para cargar prestaciones
                         presInput = "";
 
@@ -180,7 +180,7 @@ namespace TPfinal
                     codPlan = Console.ReadLine();
                 }
                 //Fin del segundo corte de control
-                
+
                 //Reiniciamos vaiable para cambiar plan
                 codPlan = "";
 
@@ -257,4 +257,3 @@ namespace TPfinal
             }
         }
     }
-}
