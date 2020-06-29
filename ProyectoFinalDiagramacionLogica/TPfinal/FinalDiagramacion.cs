@@ -208,7 +208,7 @@ namespace TPfinal
                 else
                 {
                     //Calculamos valor maximo
-                    if (cantMaxAfilSan > cantXSan)
+                    if (cantMaxAfilSan < cantXSan)
                     {
                         //Reasignamos valor maximo y codigo de sanatorio
                         cantMaxAfilSan = cantXSan;
@@ -217,7 +217,7 @@ namespace TPfinal
                 }
 
                 //Calculamos valor minimo
-                if (cantMinAfilSan < cantXSan)
+                if (cantMinAfilSan > cantXSan)
                 {
                     //Reasignamos valor minimo y codigo de sanatorio
                     cantMinAfilSan = cantXSan;
